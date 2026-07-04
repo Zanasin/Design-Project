@@ -1,0 +1,84 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Raw, processed and degraded image files
+data/raw/*
+data/interim/*
+data/processed/*
+data/degraded/*
+
+# Keep folder placeholders
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/degraded/.gitkeep
+
+# Extracted feature arrays
+features/**/*.npy
+features/**/*.npz
+features/**/*.pkl
+features/**/*.joblib
+
+# Trained models and checkpoints
+models/**/*.pt
+models/**/*.pth
+models/**/*.ckpt
+models/**/*.joblib
+models/**/*.pkl
+models/**/*.json
+models/**/*.ubj
+
+# Predictions and generated outputs
+predictions/*.csv
+logs/*
+results/plots/*
+results/confusion_matrices/*
+results/roc_curves/*
+results/failure_cases/*
+
+# Keep selected result tables under version control
+!results/tables/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+.cache/
+tmp/
+
+# Preserve empty generated-output directories
+!logs/.gitkeep
+!results/plots/.gitkeep
+!results/confusion_matrices/.gitkeep
+!results/roc_curves/.gitkeep
+!results/failure_cases/.gitkeep
+
+# Generated Phase 2 prototype feature caches
+features/prototype/*
+!features/prototype/.gitkeep
+models/prototype/xgboost/*.json
+models/prototype/resnet18/*.pt
