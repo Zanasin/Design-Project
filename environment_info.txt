@@ -1,0 +1,31 @@
+Capture date:
+2026-08-02T05:36:29+06:00
+
+Operating system:
+Fedora release 44 (Forty Four)
+
+Kernel:
+7.1.5-201.fc44.x86_64
+
+Python:
+Python 3.12.13
+
+Python path:
+/home/hasinishraq/projects/real-or-rendered/.venv/bin/python
+
+Git:
+git version 2.55.0
+
+GPU:
+NVIDIA GeForce RTX 5070 Laptop GPU, 610.43.03, 8151 MiB
+
+PyTorch:
+torch: 2.12.1+cu130
+torchvision: 0.27.1+cu130
+cuda_available: True
+cuda_runtime: 13.0
+gpu: NVIDIA GeForce RTX 5070 Laptop GPU
+compute_capability: (12, 0)
+
+Dependency check:
+No broken requirements found.
