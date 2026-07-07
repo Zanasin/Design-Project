@@ -1,0 +1,51 @@
+resnet18_selection:
+  schema_version: 1
+  random_seed: 42
+
+  manifest: "data/manifests/prototype/selection_manifest.csv"
+
+  splits:
+    training: "train"
+    validation: "validation"
+
+  class_mapping:
+    0: "real"
+    1: "ai_generated"
+
+  model:
+    architecture: "resnet18"
+    weights: "IMAGENET1K_V1"
+    output_classes: 2
+    freeze_backbone: true
+
+  preprocessing:
+    crop_size: 224
+    resize_size: 256
+    mean:
+      - 0.485
+      - 0.456
+      - 0.406
+    standard_deviation:
+      - 0.229
+      - 0.224
+      - 0.225
+
+  training:
+    epochs: 2
+    batch_size: 32
+    learning_rate: 0.001
+    weight_decay: 0.0001
+    optimizer: "adamw"
+    num_workers: 0
+    mixed_precision: true
+    deterministic: true
+
+  selection:
+    primary_metric: "f1"
+    tie_breakers:
+      - "roc_auc"
+      - "earlier_epoch"
+
+  outputs:
+    selection_report: "results/prototype/resnet18/validation_selection.json"
+    training_history: "results/prototype/resnet18/training_history.csv"
