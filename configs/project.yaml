@@ -1,0 +1,131 @@
+project:
+  name: "Real or Rendered?"
+  task: "Binary AI-generated image classification"
+  description: >
+    Detection of AI-generated images across familiar generators,
+    unseen generators, and controlled image degradation.
+  seed: 42
+
+labels:
+  real: 0
+  ai_generated: 1
+
+paths:
+  raw_data: "data/raw"
+  interim_data: "data/interim"
+  processed_data: "data/processed"
+  manifests: "data/manifests"
+  degraded_data: "data/degraded"
+  features: "features"
+  models: "models"
+  predictions: "predictions"
+  results: "results"
+  logs: "logs"
+
+dataset:
+  total_images: 7000
+  total_real: 3500
+  total_ai_generated: 3500
+
+  train:
+    total: 4000
+    real: 2000
+    ai_generated: 2000
+    generators:
+      stable_diffusion: 1000
+      biggan: 1000
+
+  validation:
+    total: 1000
+    real: 500
+    ai_generated: 500
+    generators:
+      stable_diffusion: 250
+      biggan: 250
+
+  in_domain_test:
+    total: 1000
+    real: 500
+    ai_generated: 500
+    generators:
+      stable_diffusion: 250
+      biggan: 250
+
+  unseen_generator_test:
+    total: 1000
+    real: 500
+    ai_generated: 500
+    generators:
+      midjourney: 250
+      glide: 250
+
+  forbidden_training_generators:
+    - midjourney
+    - glide
+
+image:
+  colour_mode: "RGB"
+  width: 224
+  height: 224
+
+models:
+  mandatory:
+    - linear_svm
+    - xgboost
+    - pretrained_resnet18
+
+  optional:
+    - swin_transformer_tiny
+
+resnet18:
+  pretrained_weights: "ImageNet"
+  train_from_scratch: false
+  stage_1:
+    train_classifier_head_only: true
+  stage_2:
+    unfreeze_layer4: true
+  mixed_precision: true
+
+feature_families:
+  spatial:
+    - hog
+    - edge_statistics
+    - colour_statistics
+    - local_contrast
+
+  texture:
+    - lbp
+    - local_entropy
+    - gradient_statistics
+
+  frequency:
+    - fft_radial_energy
+    - spectral_entropy
+    - dct_band_energy
+    - high_frequency_ratio
+
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+    - roc_auc
+    - confusion_matrix
+
+  degradations:
+    - clean
+    - jpeg_90
+    - jpeg_70
+    - jpeg_50
+    - resize_128
+    - gaussian_blur
+
+  primary_robustness_measure: "delta_f1"
+
+rules:
+  generator_disjoint_test: true
+  deduplicate_before_split: true
+  fit_preprocessing_on_training_only: true
+  use_test_for_model_selection: false
+  apply_degradation_equally_to_both_classes: true

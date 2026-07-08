@@ -1,0 +1,102 @@
+prototype:
+  name: "Phase 2 CIFAKE Pipeline Prototype"
+  purpose: "pipeline_validation_only"
+  final_benchmark: false
+  seed: 42
+
+dataset:
+  source: "CIFAKE"
+  total_images: 1000
+
+  classes:
+    real: 500
+    ai_generated: 500
+
+  splits:
+    train:
+      total: 700
+      real: 350
+      ai_generated: 350
+
+    validation:
+      total: 150
+      real: 75
+      ai_generated: 75
+
+    test:
+      total: 150
+      real: 75
+      ai_generated: 75
+
+paths:
+  raw_root: "data/raw/prototype"
+  real_images: "data/raw/prototype/real"
+  ai_images: "data/raw/prototype/ai_generated"
+  interim_root: "data/interim/prototype"
+  manifest: "data/manifests/prototype/manifest.csv"
+  split_summary: "data/manifests/prototype/split_summary.csv"
+  features: "features/prototype"
+  model_root: "models/prototype"
+  prediction_prefix: "predictions/prototype"
+  result_tables: "results/tables/prototype"
+  result_plots: "results/plots/prototype"
+
+image:
+  colour_mode: "RGB"
+  width: 224
+  height: 224
+
+features:
+  contract_file: "configs/prototype_features.yaml"
+  spatial:
+    enabled: true
+    methods:
+      - "hog"
+  texture:
+    enabled: true
+    methods:
+      - "lbp"
+  frequency:
+    enabled: true
+    methods:
+      - "fft_radial_profile"
+      - "dct_low_frequency"
+
+models:
+  linear_svm:
+    enabled: true
+    c: 1.0
+    max_iter: 5000
+
+  xgboost:
+    enabled: true
+    n_estimators: 50
+    max_depth: 3
+    learning_rate: 0.1
+
+  resnet18:
+    enabled: true
+    pretrained: true
+    train_from_scratch: false
+    freeze_backbone: true
+    batch_size: 32
+    epochs: 2
+    learning_rate: 0.001
+    mixed_precision: true
+
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+    - roc_auc
+    - confusion_matrix
+
+rules:
+  balanced_classes: true
+  stratified_splits: true
+  fit_preprocessing_on_training_only: true
+  use_test_for_model_selection: false
+  no_final_research_claims: true
+  do_not_merge_with_final_dataset_without_reaudit: true
