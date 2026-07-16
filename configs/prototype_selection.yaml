@@ -1,0 +1,47 @@
+selection:
+  name: "CIFAKE Phase 2 Prototype Selection"
+  seed: 42
+  algorithm: "sha256_seeded_path_ranking"
+  reject_exact_duplicates: true
+  preserve_original_test_boundary: true
+  copy_original_bytes: true
+
+source:
+  metadata: "data/manifests/prototype/cifake_source.json"
+  expected_version: 3
+
+outputs:
+  real_directory: "data/raw/prototype/real"
+  ai_generated_directory: "data/raw/prototype/ai_generated"
+  manifest: "data/manifests/prototype/selection_manifest.csv"
+  metadata: "data/manifests/prototype/selection_metadata.json"
+
+labels:
+  real:
+    source_label: "real"
+    label_id: 0
+
+  ai_generated:
+    source_label: "fake"
+    label_id: 1
+
+counts:
+  train:
+    real: 350
+    ai_generated: 350
+
+  validation:
+    real: 75
+    ai_generated: 75
+
+  test:
+    real: 75
+    ai_generated: 75
+
+rules:
+  train_source_split: "train"
+  validation_source_split: "train"
+  test_source_split: "test"
+  use_test_for_model_selection: false
+  resize_during_selection: false
+  reencode_during_selection: false

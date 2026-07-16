@@ -1,0 +1,27 @@
+{
+  "dataset_name": "CIFAKE",
+  "dataset_handle": "birdy654/cifake-real-and-ai-generated-synthetic-images/versions/3",
+  "dataset_version": 3,
+  "downloaded_at_utc": "2026-08-02T00:19:37.431501+00:00",
+  "download_root": "data/interim/cifake_source_v3",
+  "kagglehub_version": "1.0.2",
+  "image_suffixes": [
+    ".bmp",
+    ".jpeg",
+    ".jpg",
+    ".png",
+    ".webp"
+  ],
+  "counts": {
+    "train_real": 50000,
+    "train_fake": 50000,
+    "test_real": 10000,
+    "test_fake": 10000
+  },
+  "classified_total": 120000,
+  "image_file_total": 120000,
+  "image_bytes": 110717853,
+  "unclassified_image_count": 0,
+  "audit_passed": true,
+  "audit_errors": []
+}
