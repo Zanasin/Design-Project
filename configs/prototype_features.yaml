@@ -1,0 +1,56 @@
+feature_contract:
+  version: 1
+
+  input:
+    width: 224
+    height: 224
+    colour_mode: "RGB"
+    value_minimum: 0.0
+    value_maximum: 1.0
+
+  hog:
+    orientations: 9
+    pixels_per_cell: [8, 8]
+    cells_per_block: [2, 2]
+    block_norm: "L2-Hys"
+    dimension: 26244
+
+  lbp:
+    points: 24
+    radius: 3
+    method: "uniform"
+    bins: 26
+    dimension: 26
+
+  fft:
+    bins: 32
+    use_log_magnitude: true
+    normalisation: "l2"
+    dimension: 32
+
+  dct:
+    block_size: 16
+    exclude_dc: true
+    normalisation: "l2"
+    dimension: 255
+
+  combined:
+    order:
+      - "hog"
+      - "lbp"
+      - "fft"
+      - "dct"
+    dimension: 26557
+
+source:
+  manifest: "data/manifests/prototype/selection_manifest.csv"
+
+cache:
+  output_root: "features/prototype"
+  metadata: "data/manifests/prototype/feature_cache_metadata.json"
+  feature_dtype: "float32"
+  label_dtype: "int64"
+  splits:
+    - "train"
+    - "validation"
+    - "test"
