@@ -1,0 +1,39 @@
+{
+  "selection_name": "CIFAKE Phase 2 Prototype Selection",
+  "created_at_utc": "2026-08-02T00:37:39.494521+00:00",
+  "seed": 42,
+  "algorithm": "sha256_seeded_path_ranking",
+  "reject_exact_duplicates": true,
+  "preserve_original_test_boundary": true,
+  "source_dataset": "CIFAKE",
+  "source_version": 3,
+  "source_metadata": "data/manifests/prototype/cifake_source.json",
+  "selection_manifest": "data/manifests/prototype/selection_manifest.csv",
+  "selection_manifest_sha256": "ec305924a7af03ecf448b82fcc519b43a5aefbd1070e5bb35370139f77b65bf8",
+  "selected_total": 1000,
+  "selected_unique_sha256": 1000,
+  "duplicate_candidates_skipped": 0,
+  "selected_bytes": 922539,
+  "counts": {
+    "train": {
+      "real": 350,
+      "ai_generated": 350
+    },
+    "validation": {
+      "real": 75,
+      "ai_generated": 75
+    },
+    "test": {
+      "real": 75,
+      "ai_generated": 75
+    }
+  },
+  "rules": {
+    "train_source_split": "train",
+    "validation_source_split": "train",
+    "test_source_split": "test",
+    "use_test_for_model_selection": false,
+    "resize_during_selection": false,
+    "reencode_during_selection": false
+  }
+}
