@@ -1,0 +1,15 @@
+final_resnet18:
+  schema_version: 1
+
+  selection_report: "results/prototype/resnet18/validation_selection.json"
+
+  development_splits:
+    - "train"
+    - "validation"
+
+  test_split: "test"
+
+  artifacts:
+    model: "models/prototype/resnet18/resnet18_model.pt"
+    test_evaluation: "results/prototype/resnet18/test_evaluation.json"
+    test_predictions: "results/prototype/resnet18/test_predictions.csv"
