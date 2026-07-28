@@ -1,0 +1,56 @@
+xgboost_selection:
+  schema_version: 1
+  random_state: 42
+
+  feature_name: "combined"
+  fit_split: "train"
+  selection_split: "validation"
+
+  selection_metric: "f1"
+
+  tie_breakers:
+    - "roc_auc"
+    - "lower_complexity"
+    - "earlier_candidate"
+
+  fixed_parameters:
+    objective: "binary:logistic"
+    eval_metric: "logloss"
+    tree_method: "hist"
+    device: "cpu"
+    n_jobs: 1
+    subsample: 1.0
+    colsample_bytree: 1.0
+    reg_alpha: 0.0
+    reg_lambda: 1.0
+    min_child_weight: 1.0
+    gamma: 0.0
+    max_bin: 64
+    verbosity: 0
+
+  candidates:
+    - name: "baseline"
+      n_estimators: 50
+      max_depth: 3
+      learning_rate: 0.1
+
+    - name: "shallow"
+      n_estimators: 50
+      max_depth: 2
+      learning_rate: 0.1
+
+    - name: "slower_learning"
+      n_estimators: 100
+      max_depth: 3
+      learning_rate: 0.05
+
+    - name: "shallow_slower_learning"
+      n_estimators: 100
+      max_depth: 2
+      learning_rate: 0.05
+
+source:
+  feature_cache_metadata: "data/manifests/prototype/feature_cache_metadata.json"
+
+output:
+  selection_report: "results/prototype/xgboost/validation_selection.json"
