@@ -1,0 +1,36 @@
+linear_svm_selection:
+  schema_version: 1
+  random_state: 42
+
+  feature_name: "combined"
+  fit_split: "train"
+  selection_split: "validation"
+
+  candidate_c_values:
+    - 0.0001
+    - 0.001
+    - 0.01
+    - 0.1
+    - 1.0
+
+  selection_metric: "f1"
+
+  tie_breakers:
+    - "roc_auc"
+    - "lower_c"
+
+  scaler:
+    with_mean: true
+    with_std: true
+
+  classifier:
+    dual: "auto"
+    max_iter: 20000
+    tolerance: 0.0001
+    class_weight: null
+
+source:
+  feature_cache_metadata: "data/manifests/prototype/feature_cache_metadata.json"
+
+output:
+  selection_report: "results/prototype/linear_svm/validation_selection.json"
