@@ -1,0 +1,122 @@
+{
+  "architecture": "resnet18",
+  "artifacts": {
+    "model": {
+      "bytes": 44786827,
+      "path": "models/prototype/resnet18/resnet18_model.pt",
+      "sha256": "23062d2d28fc2edc71c8fb17f75dd895cc4500a0c806eef7ff3be942cbd7f34d"
+    },
+    "test_predictions": {
+      "bytes": 11248,
+      "path": "results/prototype/resnet18/test_predictions.csv",
+      "sha256": "91e4d0033079b40f660818e58c2416ea48d2e921f0918963cf308bd07ef4528c"
+    }
+  },
+  "backbone_frozen": true,
+  "final_config": "configs/prototype_resnet18_final.yaml",
+  "final_config_sha256": "4daa37ac063f30ecfea0b5da96276e5aad9036c780e35e360735ffc51f9a4c83",
+  "fit_data": {
+    "class_counts": {
+      "0": 425,
+      "1": 425
+    },
+    "records": 850,
+    "split_image_id_overlaps": {
+      "train_test": 0,
+      "train_validation": 0,
+      "validation_test": 0
+    },
+    "splits": [
+      "train",
+      "validation"
+    ]
+  },
+  "fit_result": {
+    "epochs": 2,
+    "train_losses": [
+      0.6910881492670845,
+      0.5803023040995878
+    ]
+  },
+  "manifest": "data/manifests/prototype/selection_manifest.csv",
+  "manifest_sha256": "ec305924a7af03ecf448b82fcc519b43a5aefbd1070e5bb35370139f77b65bf8",
+  "model": "pretrained_resnet18",
+  "model_contract": {
+    "output_classes": 2,
+    "total_parameters": 11177538,
+    "trainable_parameters": 1026,
+    "trainable_tensors": [
+      "fc.weight",
+      "fc.bias"
+    ]
+  },
+  "random_seed": 42,
+  "schema_version": 1,
+  "selected_epoch": 2,
+  "selected_validation_metrics": {
+    "accuracy": 0.7,
+    "balanced_accuracy": 0.7,
+    "confusion_matrix": [
+      [
+        43,
+        32
+      ],
+      [
+        13,
+        62
+      ]
+    ],
+    "f1": 0.7337278106508875,
+    "precision": 0.6595744680851063,
+    "recall": 0.8266666666666667,
+    "roc_auc": 0.8456888888888889
+  },
+  "selection_config": "configs/prototype_resnet18.yaml",
+  "selection_config_sha256": "1cf7ffed1015467fb39b7aab10a5f8f7d4ea699ddafec027b2a71cdb681eb487",
+  "selection_report": "results/prototype/resnet18/validation_selection.json",
+  "selection_report_sha256": "b8aaf1f2b35f921db08087e792ebec25e926b321ce3763cd9b2505f3c7879bfd",
+  "software": {
+    "cuda_runtime": "13.0",
+    "numpy": "2.5.1",
+    "python": "3.12.13",
+    "pytorch": "2.12.1+cu130",
+    "torchvision": "0.27.1+cu130"
+  },
+  "test_data": {
+    "class_counts": {
+      "0": 75,
+      "1": 75
+    },
+    "loss": 0.5412414546807607,
+    "records": 150,
+    "split": "test"
+  },
+  "test_metrics": {
+    "accuracy": 0.74,
+    "balanced_accuracy": 0.74,
+    "confusion_matrix": [
+      [
+        41,
+        34
+      ],
+      [
+        5,
+        70
+      ]
+    ],
+    "f1": 0.7821229050279329,
+    "precision": 0.6730769230769231,
+    "recall": 0.9333333333333333,
+    "roc_auc": 0.8414222222222222
+  },
+  "training_contract": {
+    "batch_size": 32,
+    "deterministic": true,
+    "learning_rate": 0.001,
+    "mixed_precision": true,
+    "num_workers": 0,
+    "optimizer": "adamw",
+    "weight_decay": 0.0001
+  },
+  "weights": "IMAGENET1K_V1"
+}
