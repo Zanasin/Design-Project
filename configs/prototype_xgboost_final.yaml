@@ -1,0 +1,18 @@
+final_xgboost:
+  schema_version: 1
+
+  selection_report: "results/prototype/xgboost/validation_selection.json"
+  feature_cache_metadata: "data/manifests/prototype/feature_cache_metadata.json"
+
+  feature_name: "combined"
+
+  development_splits:
+    - "train"
+    - "validation"
+
+  test_split: "test"
+
+  artifacts:
+    model: "models/prototype/xgboost/xgboost_model.json"
+    test_evaluation: "results/prototype/xgboost/test_evaluation.json"
+    test_predictions: "results/prototype/xgboost/test_predictions.csv"
