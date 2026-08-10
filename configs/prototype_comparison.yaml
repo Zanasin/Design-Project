@@ -1,0 +1,51 @@
+prototype_comparison:
+  schema_version: 1
+  expected_test_records: 150
+
+  class_mapping:
+    0: "real"
+    1: "ai_generated"
+
+  models:
+    - key: "linear_svm"
+      display_name: "Linear SVM"
+      report: "results/prototype/linear_svm/test_evaluation.json"
+      predictions: "results/prototype/linear_svm/test_predictions.csv"
+      artifact: "models/prototype/linear_svm/linear_svm.joblib"
+      score_column: "decision_score"
+      score_kind: "decision_function"
+
+    - key: "xgboost"
+      display_name: "XGBoost"
+      report: "results/prototype/xgboost/test_evaluation.json"
+      predictions: "results/prototype/xgboost/test_predictions.csv"
+      artifact: "models/prototype/xgboost/xgboost_model.json"
+      score_column: "positive_probability"
+      score_kind: "probability"
+
+    - key: "resnet18"
+      display_name: "ResNet-18"
+      report: "results/prototype/resnet18/test_evaluation.json"
+      predictions: "results/prototype/resnet18/test_predictions.csv"
+      artifact: "models/prototype/resnet18/resnet18_model.pt"
+      score_column: "positive_probability"
+      score_kind: "probability"
+
+  metrics:
+    - "accuracy"
+    - "balanced_accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "roc_auc"
+
+  limitations:
+    - "These are prototype results from 1,000 CIFAKE images, not final research results."
+    - "The prototype does not evaluate generalization to unseen image generators."
+    - "CIFAKE images are low-resolution and may contain dataset-specific artifacts."
+    - "The final conclusions must come from the generator-disjoint 7,000-image dataset."
+
+  outputs:
+    comparison_report: "results/prototype/comparison/prototype_comparison.json"
+    metrics_table: "results/prototype/comparison/model_metrics.csv"
+    markdown_summary: "results/prototype/comparison/prototype_summary.md"
