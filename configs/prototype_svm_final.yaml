@@ -1,0 +1,20 @@
+final_linear_svm:
+  schema_version: 1
+
+  selection_report: "results/prototype/linear_svm/validation_selection.json"
+  feature_cache_metadata: "data/manifests/prototype/feature_cache_metadata.json"
+
+  feature_name: "combined"
+
+  development_splits:
+    - "train"
+    - "validation"
+
+  test_split: "test"
+
+  artifacts:
+    model: "models/prototype/linear_svm/linear_svm.joblib"
+    test_evaluation: "results/prototype/linear_svm/test_evaluation.json"
+    test_predictions: "results/prototype/linear_svm/test_predictions.csv"
+
+  joblib_compress: 3
