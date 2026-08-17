@@ -1,0 +1,251 @@
+{
+  "agreement": {
+    "all_three_agree": 83,
+    "all_three_correct": 77,
+    "all_three_wrong": 6,
+    "at_least_one_disagreement": 67,
+    "only_model_correct": {
+      "linear_svm": 4,
+      "resnet18": 3,
+      "xgboost": 7
+    },
+    "pairwise_prediction_agreement": {
+      "linear_svm__resnet18": 98,
+      "linear_svm__xgboost": 108,
+      "xgboost__resnet18": 110
+    }
+  },
+  "limitations": [
+    "These are prototype results from 1,000 CIFAKE images, not final research results.",
+    "The prototype does not evaluate generalization to unseen image generators.",
+    "CIFAKE images are low-resolution and may contain dataset-specific artifacts.",
+    "The final conclusions must come from the generator-disjoint 7,000-image dataset."
+  ],
+  "metric_winners": {
+    "accuracy": {
+      "models": [
+        "XGBoost"
+      ],
+      "value": 0.86
+    },
+    "balanced_accuracy": {
+      "models": [
+        "XGBoost"
+      ],
+      "value": 0.86
+    },
+    "f1": {
+      "models": [
+        "XGBoost"
+      ],
+      "value": 0.8551724137931035
+    },
+    "precision": {
+      "models": [
+        "XGBoost"
+      ],
+      "value": 0.8857142857142857
+    },
+    "recall": {
+      "models": [
+        "ResNet-18"
+      ],
+      "value": 0.9333333333333333
+    },
+    "roc_auc": {
+      "models": [
+        "XGBoost"
+      ],
+      "value": 0.9249777777777778
+    }
+  },
+  "models": [
+    {
+      "confusion_counts": {
+        "false_negative": 21,
+        "false_positive": 18,
+        "true_negative": 57,
+        "true_positive": 54
+      },
+      "confusion_matrix": [
+        [
+          57,
+          18
+        ],
+        [
+          21,
+          54
+        ]
+      ],
+      "correct_predictions": 111,
+      "display_name": "Linear SVM",
+      "key": "linear_svm",
+      "metrics": {
+        "accuracy": 0.74,
+        "balanced_accuracy": 0.74,
+        "f1": 0.7346938775510204,
+        "precision": 0.75,
+        "recall": 0.72,
+        "roc_auc": 0.8083555555555555
+      },
+      "score_column": "decision_score",
+      "score_kind": "decision_function",
+      "selected_validation_metrics": {
+        "accuracy": 0.6533333333333333,
+        "balanced_accuracy": 0.6533333333333333,
+        "f1": 0.6388888888888888,
+        "precision": 0.6666666666666666,
+        "recall": 0.6133333333333333,
+        "roc_auc": 0.7306666666666667
+      },
+      "sources": {
+        "artifact": {
+          "bytes": 778223,
+          "mib": 0.7421712875366211,
+          "path": "models/prototype/linear_svm/linear_svm.joblib",
+          "sha256": "bfb0a0f936417e2143e44f6daa5d20ad025324dd7b93b282bd24449ac77c6fee"
+        },
+        "predictions": {
+          "path": "results/prototype/linear_svm/test_predictions.csv",
+          "sha256": "9e805987a90f3578dfd1173a4e9e728978e8d3cf78b3c87bae2e63be1d70958e"
+        },
+        "report": {
+          "path": "results/prototype/linear_svm/test_evaluation.json",
+          "sha256": "a54603f0cbd570e7d59501ae2be0ef5fef9e6a0c03fada27954c20a905c3a199"
+        }
+      },
+      "specificity": 0.76,
+      "test_records": 150
+    },
+    {
+      "confusion_counts": {
+        "false_negative": 13,
+        "false_positive": 8,
+        "true_negative": 67,
+        "true_positive": 62
+      },
+      "confusion_matrix": [
+        [
+          67,
+          8
+        ],
+        [
+          13,
+          62
+        ]
+      ],
+      "correct_predictions": 129,
+      "display_name": "XGBoost",
+      "key": "xgboost",
+      "metrics": {
+        "accuracy": 0.86,
+        "balanced_accuracy": 0.86,
+        "f1": 0.8551724137931035,
+        "precision": 0.8857142857142857,
+        "recall": 0.8266666666666667,
+        "roc_auc": 0.9249777777777778
+      },
+      "score_column": "positive_probability",
+      "score_kind": "probability",
+      "selected_validation_metrics": {
+        "accuracy": 0.88,
+        "balanced_accuracy": 0.88,
+        "f1": 0.8783783783783784,
+        "precision": 0.8904109589041096,
+        "recall": 0.8666666666666667,
+        "roc_auc": 0.9320888888888889
+      },
+      "sources": {
+        "artifact": {
+          "bytes": 128031,
+          "mib": 0.1220998764038086,
+          "path": "models/prototype/xgboost/xgboost_model.json",
+          "sha256": "d84303e81bede0435b96232c1d21035538bcc4214b6c2909d348f6db59bb3f21"
+        },
+        "predictions": {
+          "path": "results/prototype/xgboost/test_predictions.csv",
+          "sha256": "9418a158a28982daf54e323efbab0282c1c373787e7b6df40feb5f83aadd6139"
+        },
+        "report": {
+          "path": "results/prototype/xgboost/test_evaluation.json",
+          "sha256": "cd23f6971cdcf730f66afab8b56030a510bdb3c80e676a89011db5d63f4cfc5b"
+        }
+      },
+      "specificity": 0.8933333333333333,
+      "test_records": 150
+    },
+    {
+      "confusion_counts": {
+        "false_negative": 5,
+        "false_positive": 34,
+        "true_negative": 41,
+        "true_positive": 70
+      },
+      "confusion_matrix": [
+        [
+          41,
+          34
+        ],
+        [
+          5,
+          70
+        ]
+      ],
+      "correct_predictions": 111,
+      "display_name": "ResNet-18",
+      "key": "resnet18",
+      "metrics": {
+        "accuracy": 0.74,
+        "balanced_accuracy": 0.74,
+        "f1": 0.7821229050279329,
+        "precision": 0.6730769230769231,
+        "recall": 0.9333333333333333,
+        "roc_auc": 0.8414222222222222
+      },
+      "score_column": "positive_probability",
+      "score_kind": "probability",
+      "selected_validation_metrics": {
+        "accuracy": 0.7,
+        "balanced_accuracy": 0.7,
+        "f1": 0.7337278106508875,
+        "precision": 0.6595744680851063,
+        "recall": 0.8266666666666667,
+        "roc_auc": 0.8456888888888889
+      },
+      "sources": {
+        "artifact": {
+          "bytes": 44786827,
+          "mib": 42.71204662322998,
+          "path": "models/prototype/resnet18/resnet18_model.pt",
+          "sha256": "23062d2d28fc2edc71c8fb17f75dd895cc4500a0c806eef7ff3be942cbd7f34d"
+        },
+        "predictions": {
+          "path": "results/prototype/resnet18/test_predictions.csv",
+          "sha256": "91e4d0033079b40f660818e58c2416ea48d2e921f0918963cf308bd07ef4528c"
+        },
+        "report": {
+          "path": "results/prototype/resnet18/test_evaluation.json",
+          "sha256": "a752dfbd5659b786977f13ae36323d4d47d1ec35bb61b615ce8c49277ed43c27"
+        }
+      },
+      "specificity": 0.5466666666666666,
+      "test_records": 150
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "class_mapping": {
+      "0": "real",
+      "1": "ai_generated"
+    },
+    "identical_test_ids": true,
+    "identical_true_labels": true,
+    "stage": "phase_2_prototype",
+    "test_records": 150
+  },
+  "summary": {
+    "best_overall_by_f1": "XGBoost",
+    "best_recall": "ResNet-18",
+    "smallest_artifact": "XGBoost"
+  }
+}
