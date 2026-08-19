@@ -1,0 +1,100 @@
+{
+  "artifacts": {
+    "model": {
+      "bytes": 778223,
+      "path": "models/prototype/linear_svm/linear_svm.joblib",
+      "sha256": "bfb0a0f936417e2143e44f6daa5d20ad025324dd7b93b282bd24449ac77c6fee"
+    },
+    "test_predictions": {
+      "bytes": 11090,
+      "path": "results/prototype/linear_svm/test_predictions.csv",
+      "sha256": "9e805987a90f3578dfd1173a4e9e728978e8d3cf78b3c87bae2e63be1d70958e"
+    }
+  },
+  "feature_cache_metadata": "data/manifests/prototype/feature_cache_metadata.json",
+  "feature_cache_metadata_sha256": "441a4a04853859b0f959416a5a70e7ec715bad36c689126b55684b01bce6bf90",
+  "feature_config_sha256": "a697fdb76459cf473853982cf81ada4011f2ff0566293dd950ab4fde53b9d598",
+  "feature_dimension": 26557,
+  "feature_name": "combined",
+  "final_config": "configs/prototype_svm_final.yaml",
+  "final_config_sha256": "f7c1c0095fa3cb5a8949ff96556c9b555c18b091b47dafbcddcb6247f4fcc2fc",
+  "fit_data": {
+    "class_counts": {
+      "0": 425,
+      "1": 425
+    },
+    "records": 850,
+    "split_image_id_overlaps": {
+      "train_test": 0,
+      "train_validation": 0,
+      "validation_test": 0
+    },
+    "splits": [
+      "train",
+      "validation"
+    ]
+  },
+  "fit_result": {
+    "converged": true,
+    "n_iter": 18
+  },
+  "kernel_interpretation": "linear",
+  "manifest_sha256": "ec305924a7af03ecf448b82fcc519b43a5aefbd1070e5bb35370139f77b65bf8",
+  "model": "linear_svm",
+  "schema_version": 1,
+  "selected_c": 0.0001,
+  "selected_validation_metrics": {
+    "accuracy": 0.6533333333333333,
+    "balanced_accuracy": 0.6533333333333333,
+    "confusion_matrix": [
+      [
+        52,
+        23
+      ],
+      [
+        29,
+        46
+      ]
+    ],
+    "f1": 0.6388888888888888,
+    "precision": 0.6666666666666666,
+    "recall": 0.6133333333333333,
+    "roc_auc": 0.7306666666666667
+  },
+  "selection_config": "configs/prototype_svm.yaml",
+  "selection_config_sha256": "d1b4ce157c33712290d56a0c4427d86650670ec950d644b753ef434ba92f8aae",
+  "selection_report": "results/prototype/linear_svm/validation_selection.json",
+  "selection_report_sha256": "7abab46382a6ebdeddcc1c54173881a70dab124bed1463d8d7b5688bb38fa977",
+  "software": {
+    "joblib": "1.5.3",
+    "numpy": "2.5.1",
+    "python": "3.12.13",
+    "scikit_learn": "1.9.0"
+  },
+  "test_data": {
+    "class_counts": {
+      "0": 75,
+      "1": 75
+    },
+    "records": 150,
+    "split": "test"
+  },
+  "test_metrics": {
+    "accuracy": 0.74,
+    "balanced_accuracy": 0.74,
+    "confusion_matrix": [
+      [
+        57,
+        18
+      ],
+      [
+        21,
+        54
+      ]
+    ],
+    "f1": 0.7346938775510204,
+    "precision": 0.75,
+    "recall": 0.72,
+    "roc_auc": 0.8083555555555555
+  }
+}

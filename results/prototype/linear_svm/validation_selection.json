@@ -1,0 +1,177 @@
+{
+  "candidates": [
+    {
+      "c": 0.0001,
+      "converged": true,
+      "metrics": {
+        "accuracy": 0.6533333333333333,
+        "balanced_accuracy": 0.6533333333333333,
+        "confusion_matrix": [
+          [
+            52,
+            23
+          ],
+          [
+            29,
+            46
+          ]
+        ],
+        "f1": 0.6388888888888888,
+        "precision": 0.6666666666666666,
+        "recall": 0.6133333333333333,
+        "roc_auc": 0.7306666666666667
+      },
+      "n_iter": 17
+    },
+    {
+      "c": 0.001,
+      "converged": true,
+      "metrics": {
+        "accuracy": 0.6466666666666666,
+        "balanced_accuracy": 0.6466666666666667,
+        "confusion_matrix": [
+          [
+            51,
+            24
+          ],
+          [
+            29,
+            46
+          ]
+        ],
+        "f1": 0.6344827586206897,
+        "precision": 0.6571428571428571,
+        "recall": 0.6133333333333333,
+        "roc_auc": 0.7287111111111112
+      },
+      "n_iter": 37
+    },
+    {
+      "c": 0.01,
+      "converged": true,
+      "metrics": {
+        "accuracy": 0.6466666666666666,
+        "balanced_accuracy": 0.6466666666666667,
+        "confusion_matrix": [
+          [
+            51,
+            24
+          ],
+          [
+            29,
+            46
+          ]
+        ],
+        "f1": 0.6344827586206897,
+        "precision": 0.6571428571428571,
+        "recall": 0.6133333333333333,
+        "roc_auc": 0.7281777777777777
+      },
+      "n_iter": 45
+    },
+    {
+      "c": 0.1,
+      "converged": true,
+      "metrics": {
+        "accuracy": 0.6466666666666666,
+        "balanced_accuracy": 0.6466666666666667,
+        "confusion_matrix": [
+          [
+            51,
+            24
+          ],
+          [
+            29,
+            46
+          ]
+        ],
+        "f1": 0.6344827586206897,
+        "precision": 0.6571428571428571,
+        "recall": 0.6133333333333333,
+        "roc_auc": 0.7281777777777777
+      },
+      "n_iter": 47
+    },
+    {
+      "c": 1.0,
+      "converged": true,
+      "metrics": {
+        "accuracy": 0.6466666666666666,
+        "balanced_accuracy": 0.6466666666666667,
+        "confusion_matrix": [
+          [
+            51,
+            24
+          ],
+          [
+            29,
+            46
+          ]
+        ],
+        "f1": 0.6344827586206897,
+        "precision": 0.6571428571428571,
+        "recall": 0.6133333333333333,
+        "roc_auc": 0.7281777777777777
+      },
+      "n_iter": 46
+    }
+  ],
+  "development_data": {
+    "feature_dimension": 26557,
+    "feature_name": "combined",
+    "fit_class_counts": {
+      "0": 350,
+      "1": 350
+    },
+    "fit_feature_sha256": "c79b4ce47b90eecffb5247fe5b14bc490b5cd3258c78505292531de53932aec7",
+    "fit_labels_sha256": "60c8aa582c2a6444fd01ac100cbd58acfdba367b1374c4a232d3dbe48660bec0",
+    "fit_records": 700,
+    "fit_split": "train",
+    "image_id_overlap": 0,
+    "selection_class_counts": {
+      "0": 75,
+      "1": 75
+    },
+    "selection_feature_sha256": "85af8ced102d3c2979b95fdc7aa6e7754efdff2b47ade68115f42656bcf1c9a3",
+    "selection_labels_sha256": "6d14e2968a9de271c5348c4e57b22cc8679843739ee899e13aff331bc3ef3c72",
+    "selection_records": 150,
+    "selection_split": "validation"
+  },
+  "feature_cache_metadata": "data/manifests/prototype/feature_cache_metadata.json",
+  "feature_cache_metadata_sha256": "441a4a04853859b0f959416a5a70e7ec715bad36c689126b55684b01bce6bf90",
+  "feature_config_sha256": "a697fdb76459cf473853982cf81ada4011f2ff0566293dd950ab4fde53b9d598",
+  "kernel_interpretation": "linear",
+  "manifest_sha256": "ec305924a7af03ecf448b82fcc519b43a5aefbd1070e5bb35370139f77b65bf8",
+  "model": "linear_svm",
+  "random_state": 42,
+  "schema_version": 1,
+  "selected_c": 0.0001,
+  "selected_validation_metrics": {
+    "accuracy": 0.6533333333333333,
+    "balanced_accuracy": 0.6533333333333333,
+    "confusion_matrix": [
+      [
+        52,
+        23
+      ],
+      [
+        29,
+        46
+      ]
+    ],
+    "f1": 0.6388888888888888,
+    "precision": 0.6666666666666666,
+    "recall": 0.6133333333333333,
+    "roc_auc": 0.7306666666666667
+  },
+  "selection_metric": "f1",
+  "selection_rule": {
+    "primary_metric": "f1",
+    "tie_breakers": [
+      "roc_auc",
+      "lower_c"
+    ]
+  },
+  "svm_config": "configs/prototype_svm.yaml",
+  "svm_config_sha256": "d1b4ce157c33712290d56a0c4427d86650670ec950d644b753ef434ba92f8aae"
+}
